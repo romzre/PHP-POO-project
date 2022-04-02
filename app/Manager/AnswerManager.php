@@ -85,6 +85,20 @@ class AnswerManager {
 
     }
 
+    public function delete($id_answer)
+    {
+
+        $sql = "DELETE FROM `answer` WHERE id_answer = :id_answer";
+
+        $req = $this->pdo->prepare($sql);
+        $result = $req->execute(
+            [
+                'id_answer' => $id_answer
+            ]
+            );
+        return $result;
+    }
+
     public function getQuestionName($id_question)
     {
 

@@ -81,17 +81,18 @@ class QuestionManager {
     }
 
 
-    public function delete(int $id)
+    public function delete($id_question)
     {
 
-        $sql = "DELETE FROM question WHERE id = :id";
+        $sql = "DELETE FROM `question` WHERE id_question = :id_question";
 
         $req = $this->pdo->prepare($sql);
-        $req->execute(
+        $result = $req->execute(
             [
-                'id' => $id
+                'id_question' => $id_question
             ]
             );
+        return $result;
     }
 
     public function getQcm($id_question)

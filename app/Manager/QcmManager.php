@@ -77,6 +77,19 @@ class QcmManager {
             ]
             );
     }
+    public function delete($id_qcm)
+    {
+
+        $sql = "DELETE FROM `qcm` WHERE id_qcm = :id_qcm";
+
+        $req = $this->pdo->prepare($sql);
+        $result = $req->execute(
+            [
+                'id_qcm' => $id_qcm
+            ]
+            );
+        return $result;
+    }
 
     
     

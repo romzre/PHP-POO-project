@@ -8,12 +8,12 @@ if(!isset($_POST['submit']))
 }
 else
 {
-    require '../app/Manager/QuestionManager.php';
-    $manager = new QuestionManager();
+    require '../app/Manager/AnswerManager.php';
+    $manager = new AnswerManager();
     $del = $manager->delete($_POST['id']);
 
     if($del)
     {
-        header("Location:index_question.php?id=".$_SESSION['id_qcm']);
+        header("Location:index_answer.php?id_question=".$_SESSION['id_question']);
     }
 }

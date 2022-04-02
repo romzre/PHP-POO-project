@@ -16,11 +16,11 @@ require '../template/partial/_top.tpl.php'; ?>
     
         <?php foreach ($questions as $question):?>
         <tr>
-            <td><?= $question->getTitle() ?></td>
+            <td><a href="index_answer.php?id_question=<?= $question->getId() ?>"><?= $question->getTitle() ?></a></td>
             <td>
-            <a  class="text-white" href="index_answer.php?id_question=<?= $question->getId() ?>"><button class="btn btn-secondary">Voir réponses</button></a>
+            <a  class="text-white" href="new_answer.php"><button class="btn btn-secondary">Ajouter une réponse</button></a>
             <a  class="text-white" href="new_question.php?id_question=<?= $question->getId() ?>"><button class="btn btn-primary">Modifier</button></a>
-            <a  class="text-white" href=""><button class="btn btn-danger">Supprimer</button></a>
+            <form onsubmit="return confirm('La Sentence sera Irrévoquable... ')" action="del_question.php" method="POST"><input type="hidden" name='id' value="<?= $question->getId() ?>"><button class="btn btn-danger" type="submit" name='submit' > Supprimer</button></form>
             </td>
         </tr>
         

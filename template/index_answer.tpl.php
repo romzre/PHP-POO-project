@@ -23,7 +23,7 @@ require '../template/partial/_top.tpl.php'; ?>
             <td>
                 
             <a  class="text-white" href="new_answer.php?id_answer=<?= $answer->getId() ?>"><button class="btn btn-primary">Modifier</button></a>
-            <a  class="text-white" href=""><button class="btn btn-danger">Supprimer</button></a>
+            <form onsubmit="return confirm('La Sentence sera Irrévoquable... ')" action="del_answer.php" method="POST"><input type="hidden" name='id' value="<?= $answer->getId() ?>"><button class="btn btn-danger" type="submit" name='submit'> Supprimer</button></form>
             </td>
         </tr>
         
