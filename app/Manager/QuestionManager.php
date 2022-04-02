@@ -108,6 +108,26 @@ class QuestionManager {
 
         $id = $req->fetch(PDO::FETCH_ASSOC);
     }
+
+   
+
+
+    public function getQcmName($id_qcm)
+    {
+
+        $sql = "SELECT title FROM `qcm` WHERE id_qcm = :id_qcm";
+
+        $req = $this->pdo->prepare($sql);
+        $req->execute(
+            [
+                'id_qcm' => $id_qcm
+            ]
+            );
+
+        $name = $req->fetchColumn();
+
+        return $name;
+    }
     /**
      * Get the value of titre
      */ 

@@ -1,7 +1,11 @@
 <?php
+session_start();
 
 $title = '';
 $message = "";
+
+
+
 if(!empty($_POST['submit']) && !empty($_POST['title']) && !empty($_GET['id_question'])){
     require '../app/Manager/QuestionManager.php';
  
@@ -10,13 +14,16 @@ if(!empty($_POST['submit']) && !empty($_POST['title']) && !empty($_GET['id_quest
     $id= $managerUpdate->getQcm($_GET['id_question']);
     header("Location:index_question.php?id=".$_GET['id_question']); die;
 };
+
+
 if (isset($_POST['submit'])) 
 {
     if (!empty($_POST['title'])) 
     {
+        
         require '../app/Manager/QuestionManager.php';
         $manager = new QuestionManager();
-        $question_id = $manager->insert($_POST['title'], intval($_GET['id']));
+        $question_id = $manager->insert($_POST['title'], intval($_SESSION['id_qcm']));
         if($question_id)
         {
             header("location:index_question?id=".$question_id); die;
@@ -36,10 +43,24 @@ if (!empty($_GET['id_question'])) {
     
     require '../app/Manager/QuestionManager.php';
     $manager = new QuestionManager();
+   
+    $name_qcm = $manager->getQcmName(intval($_SESSION['id_qcm']));
+  
+    $action = 'Modifiez la question';
+
     $question = $manager->getOne(intval($_GET['id_question']));
     $title = $question['title'];
     
     // $manager->update($question['id_question'],$question['title']);
+}
+elseif (empty($_GET['id_question']))
+{
+    require '../app/Manager/QuestionManager.php';
+    $manager = new QuestionManager();
+   
+    $name_qcm = $manager->getQcmName(intval($_SESSION['id_qcm']));   
+    $action = "Ajoutez votre nouvelle question";
+    $title = '';
 }
 
 require '../template/new_question.tpl.php';

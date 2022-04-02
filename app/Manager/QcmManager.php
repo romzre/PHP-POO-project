@@ -34,6 +34,23 @@ class QcmManager {
         return $result;
     }
 
+    public function getQcmName($id_qcm)
+    {
+
+        $sql = "SELECT title FROM `qcm` WHERE id_qcm = :id_qcm";
+
+        $req = $this->pdo->prepare($sql);
+        $req->execute(
+            [
+                'id_qcm' => $id_qcm
+            ]
+            );
+
+        $name = $req->fetchColumn();
+
+        return $name;
+    }
+
     public function insert(string $title) : int
     {
         $sql = "INSERT INTO qcm (title) VALUES (:title)";
@@ -47,5 +64,20 @@ class QcmManager {
             return $this->pdo->lastInsertId();
     }
 
+    public function update($id_qcm, $title)
+    {
+
+        $sql = "UPDATE `qcm` SET `title`= :title WHERE id_qcm = :id_qcm";
+
+        $req = $this->pdo->prepare($sql);
+        $req->execute(
+            [
+                'title' => $title,
+                'id_qcm' => $id_qcm
+            ]
+            );
+    }
+
+    
     
 }

@@ -2,14 +2,15 @@
 
 class Answer
 {
-
+    private $id;
     private string $text;
 
-    private bool $isTheGoodAnswer;
+    private bool $isGoodAnswer;
 
-    public function __construct(string $text, bool $isTheGoodAnswer = false)
+    public function __construct(string $text,int $id, bool $isGoodAnswer = false)
     {
-        $this->setText($text)->setIsTheGoodAnswer($isTheGoodAnswer);
+        $this->setText($text)->setIsGoodAnswer($isGoodAnswer)->setId($id);
+
     }
 
     // TODO : ajouter les propriétés
@@ -37,22 +38,46 @@ class Answer
         return $this;
     }
 
+   
+
+  
+
     /**
-     * Get the value of isTheGoodAnswer
+     * Get the value of id
      */ 
-    public function getIsTheGoodAnswer()
+    public function getId()
     {
-        return $this->isTheGoodAnswer;
+        return $this->id;
     }
 
     /**
-     * Set the value of isTheGoodAnswer
+     * Set the value of id
      *
      * @return  self
      */ 
-    public function setIsTheGoodAnswer($isTheGoodAnswer)
+    public function setId($id)
     {
-        $this->isTheGoodAnswer = $isTheGoodAnswer;
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of isGoodAnswer
+     */ 
+    public function getIsGoodAnswer()
+    {
+        return $this->isGoodAnswer;
+    }
+
+    /**
+     * Set the value of isGoodAnswer
+     *
+     * @return  self
+     */ 
+    public function setIsGoodAnswer($isGoodAnswer)
+    {
+        $this->isGoodAnswer = $isGoodAnswer;
 
         return $this;
     }

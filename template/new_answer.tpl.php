@@ -7,20 +7,20 @@ require '../template/partial/_top.tpl.php';
 <form  class="p-5" action="#" method="POST">
     <div >
         <div>
-            <h2>Nouvelle réponse</h2>
+            <h2><?= $head_answer ; ?></h2>
         </div>
         <div  class="form-group ">
-            <label for="title">Nom</label>
-            <input class="form-control" type="text" name="title">
+            <label for="title"><?= $action ; ?></label>
+            <input class="form-control" value="<?= $title ; ?>" type="text" name="response">
         </div>
         <div class="form-check">
-  <input class="form-check-input" type="radio" name="IsGoodAnswer" id="flexRadioDefault1">
+  <input class="form-check-input" type="radio" name="IsGoodAnswer" value="1">
   <label class="form-check-label" for="flexRadioDefault1">
     Vrai
   </label>
 </div>
 <div class="form-check">
-  <input checked class="form-check-input" type="radio" name="IsGoodAnswer" id="flexRadioDefault2" checked>
+  <input checked class="form-check-input" type="radio" name="IsGoodAnswer" value="0" checked>
   <label class="form-check-label" for="flexRadioDefault2">
     Faux
   </label>

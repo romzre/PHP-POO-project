@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../app/Manager/QcmManager.php';
 
 $qcmManager = new QcmManager();
