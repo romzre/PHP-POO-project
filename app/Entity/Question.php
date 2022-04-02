@@ -5,8 +5,10 @@ class Question
 
     // TODO : ajouter les propriétés
     private string $title;
+    private int $id;
 
-    private array $answers;
+
+    // private array $answers;
 
     public function __construct(string $title)
     {
@@ -15,7 +17,7 @@ class Question
 
     /**
      * Get the value of title
-     */ 
+     */
     public function getTitle()
     {
         return $this->title;
@@ -25,7 +27,7 @@ class Question
      * Set the value of title
      *
      * @return  self
-     */ 
+     */
     public function setTitle($title)
     {
         $this->title = $title;
@@ -42,9 +44,31 @@ class Question
 
     /**
      * Get the value of answers
-     */ 
+     */
     public function getAnswers()
     {
         return $this->answers;
+    }
+
+
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 }

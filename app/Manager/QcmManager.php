@@ -34,6 +34,18 @@ class QcmManager {
         return $result;
     }
 
+    public function insert(string $title) : int
+    {
+        $sql = "INSERT INTO qcm (title) VALUES (:title)";
+
+        $req = $this->pdo->prepare($sql);
+        $req->execute(
+            [
+                'title' => $title
+            ]
+            );
+            return $this->pdo->lastInsertId();
+    }
 
     
 }

@@ -3,9 +3,10 @@ require '../template/partial/_top.tpl.php'; ?>
 
 <div class="container">
     <h1>Mes Qcms</h1>
-<table>
+    <a href="new-qcm.php">Nouveau</a>
+<table class="table table-bordered table-dark p-6">
     <thead>
-        <tr >
+        <tr>
             <th>id</th>
             <th>QCM</th>
             <th>Action</th>
@@ -15,10 +16,11 @@ require '../template/partial/_top.tpl.php'; ?>
         <?php foreach ($qcms as $qcm):?>
         <tr>
             <td><?= $qcm->getId() ?></td>
-            <td><?= $qcm->getTitle() ?></td>
+            <td><a href="index_question.php?id=<?= $qcm->getId() ?>"><?= $qcm->getTitle() ?></a></td>
             <td>
-                <a href="">Modifier</a>
-                <a href="">Supprimer</a>
+                <button class="btn btn-secondary"><a class="text-white" href="new_question.php?id=<?= $qcm->getId() ?>">Ajouter question</a></button>
+                <button class="btn btn-primary"><a class="text-white" href="index_question.php?id=<?= $qcm->getId() ?>">Modifier</a></button>
+                <button class="btn btn-danger"><a class="text-white" href="">Supprimer</a></button>
             </td>
         </tr>
         
