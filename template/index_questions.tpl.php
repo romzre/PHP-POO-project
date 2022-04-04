@@ -23,10 +23,12 @@ require '../template/partial/_top.tpl.php'; ?>
             <form onsubmit="return confirm('La Sentence sera Irrévoquable... ')" action="del_question.php" method="POST"><input type="hidden" name='id' value="<?= $question->getId() ?>"><button class="btn btn-danger" type="submit" name='submit' > Supprimer</button></form>
             </td>
         </tr>
-        
         <?php endforeach;?>
     </tbody>
 </table>
+<?php if($TextNo != ''): ?>
+    <div class="alert alert-warning" role="alert"><?=  $TextNo;  ?></div>
+<?php endif; ?>
 </div>
 
 

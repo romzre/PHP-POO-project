@@ -27,6 +27,9 @@ require '../template/partial/_top.tpl.php'; ?>
         <?php endforeach;?>
     </tbody>
 </table>
+<?php if($TextNo != ''): ?>
+    <div class="alert alert-warning" role="alert"><?=  $TextNo;  ?></div>
+<?php endif; ?>
 </div>
 
 
